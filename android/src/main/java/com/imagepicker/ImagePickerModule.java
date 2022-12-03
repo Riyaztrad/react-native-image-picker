@@ -150,7 +150,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule implements Act
                 if (selectionLimit != 1) {
                     int maxNum = selectionLimit;
                     if (selectionLimit == 0) maxNum = MediaStore.getPickImagesMaxLimit();
-                    libraryIntent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, maxNum);
+                    libraryIntent.putExtra(50, maxNum);
                 }
             }
         }
