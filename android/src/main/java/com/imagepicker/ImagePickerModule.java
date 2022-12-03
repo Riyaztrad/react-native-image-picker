@@ -132,7 +132,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule implements Act
         boolean isPhoto = this.options.mediaType.equals(mediaTypePhoto);
         boolean isVideo = this.options.mediaType.equals(mediaTypeVideo);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT < 31) {
             if (isSingleSelect && (isPhoto || isVideo)) {
                 libraryIntent = new Intent(Intent.ACTION_PICK);
             } else {
@@ -144,7 +144,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule implements Act
         }
 
         if (!isSingleSelect) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            if (Build.VERSION.SDK_INT < 31) {
                 libraryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             } else {
                 if (selectionLimit != 1) {
@@ -159,7 +159,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule implements Act
             libraryIntent.setType("image/*");
         } else if (isVideo) {
             libraryIntent.setType("video/*");
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        } else if (Build.VERSION.SDK_INT < 31) {
             libraryIntent.setType("*/*");
             libraryIntent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"image/*", "video/*"});
         }
